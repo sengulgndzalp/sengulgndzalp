@@ -1,0 +1,39 @@
+#include <stdio.h> 
+#include <stdlib.h> 
+//diziler
+ int main() 
+{ 
+/* rastgele oluşturulmuş sayılar içerisinde asal sayıların sayısını getiren program */ 
+int sayi[1000];
+ int eleman_sayisi = sizeof(sayi)/sizeof(int);
+ srand(time(NULL)*time(NULL)); 
+int i,j; 
+for(i=0; i<eleman_sayisi; i++)
+ { 
+sayi[i]=rand(); 
+printf("%d ",sayi[i]);
+ } 
+printf("\n\n\n");
+ int sayac=0; 
+for(i=0; i<eleman_sayisi; i++)
+ {
+ if(asalmi(sayi[i])==1) 
+{ 
+sayac++; printf("%d ",sayi[i]); 
+} } 
+printf("\n\ndizide sarti saglayan %d sayi vardır. ",sayac); 
+
+return 0; 
+} 
+int asalmi(int a) 
+{ 
+if(a==1 || a==0) 
+return -1;
+int i; 
+for(i=2; i<a; i++) 
+{ 
+if(a%i==0) 
+return -1; 
+} 
+return 1; 
+}
